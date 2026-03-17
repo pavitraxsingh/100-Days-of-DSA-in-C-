@@ -4,8 +4,8 @@ The sum of two matrices is obtained by adding corresponding elements of the matr
 
 Input:
 - First line: two integers m and n representing the number of rows and columns
-- Next m lines: n integers each representing the elements of the first matrix
-- Next m lines: n integers each representing the elements of the second matrix
+- Next m lines: n integers each representing the elementss of the first matrix
+- Next m lines: n integers each representing the elementss of the second matrix
 
 Output:
 - Print the resultant matrix after addition, with each row on a new line and elements separated by spaces
