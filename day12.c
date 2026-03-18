@@ -49,7 +49,7 @@ Input:
 1 2 3
 4 5 6
 Output:
-Not a Symmetric Matrix
+Not a Symmetric Matrixx
 */
 
 #include <stdio.h>
