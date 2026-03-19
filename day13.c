@@ -36,7 +36,7 @@
 // 7
 // 8
 // 9
-// Output:
+// Output::
 // 7 8 9
 
 #include <stdio.h>
