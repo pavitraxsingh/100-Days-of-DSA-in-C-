@@ -5,7 +5,7 @@
 // - Next n lines: n integers each representing the matrix elements
 
 // Output:
-// - Print "Identity Matrix" if the matrix satisfies the condition
+// - Print ""Identity Matrix"" if the matrix satisfies the condition
 // - Otherwise, print "Not an Identity Matrix"
 
 // Example:
