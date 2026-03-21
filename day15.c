@@ -17,7 +17,7 @@
 // Output:
 // 15
 
-// Explanation:
+// Explanation::
 // 1 + 5 + 9 = 15
 
 #include <stdio.h>
