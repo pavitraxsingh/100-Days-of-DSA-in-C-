@@ -1,4 +1,4 @@
-// Problem: Given an array of integers, rotate the array to the right by k positions.
+// Problem:: Given an array of integers, rotate the array to the right by k positions.
 
 // Input:
 // - First line: integer n
