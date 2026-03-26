@@ -9,7 +9,7 @@ Output:
 - Print YES if palindrome, otherwise NO
 
 Example:
-Input:
+Input::
 level
 
 Output:
