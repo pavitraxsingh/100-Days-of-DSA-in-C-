@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 /*
 Problem: Write a program to perform addition of two matrices having the same dimensions. 
-The sum of two matrices is obtained by adding corresponding elements of the matrices.
+The sum of two matrices is obtained by adding corresponding elements of the matrices..
 
 Input:
 - First line: two integers m and n representing the number of rows and columns
