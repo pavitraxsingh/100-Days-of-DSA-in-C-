@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
 Problem: Write a program to check whether a given matrix is symmetric. 
 A matrix is said to be symmetric if it is a square matrix and is equal to its transpose 
