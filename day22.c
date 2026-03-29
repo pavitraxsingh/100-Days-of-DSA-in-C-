@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem: Count Nodes in Linked List
 
 // Input:
