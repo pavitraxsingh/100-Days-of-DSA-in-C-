@@ -1,67 +1,73 @@
-// Problem: Using DFS and parent tracking, detect if undirected graph has a cycle.
+// Problem: Detect cycle in directed graph using DFS and recursion stack.
 
 // Output:
-// - YES or NO
-
+// - YES if cycle exists
 #include <stdio.h>
-#include <stdlib.h>
 
 #define MAX 100
 
-int visited[MAX];
+int graph[MAX][MAX];   // adjacency matrix
+int visited[MAX];      // visited array
+int recStack[MAX];     // recursion stack
 
-// DFS function to detect cycle
-int dfs(int node, int parent, int adj[MAX][MAX], int n) {
-    visited[node] = 1;
+// DFS function
+int dfs(int node, int V) {
+    visited[node] = 1;     // mark visited
+    recStack[node] = 1;    // add to recursion stack
 
-    for (int i = 0; i < n; i++) {
-        if (adj[node][i]) {  // if there is an edge
+    for (int i = 0; i < V; i++) {
+        if (graph[node][i]) {   // if edge exists
             if (!visited[i]) {
-                // visit the neighbor
-                if (dfs(i, node, adj, n))
-                    return 1;
+                if (dfs(i, V))
+                    return 1;   // cycle found
             }
-            else if (i != parent) {
-                // visited and not parent → cycle detected
+            else if (recStack[i]) {
+                return 1;       // cycle found
+            }
+        }
+    }
+
+    recStack[node] = 0;   // remove from stack
+    return 0;
+}
+
+// check cycle in graph
+int hasCycle(int V) {
+    for (int i = 0; i < V; i++) {
+        visited[i] = 0;
+        recStack[i] = 0;
+    }
+
+    for (int i = 0; i < V; i++) {
+        if (!visited[i]) {
+            if (dfs(i, V))
                 return 1;
-            }
         }
     }
     return 0;
 }
 
 int main() {
-    int n, edges;
-    int adj[MAX][MAX] = {0};
+    int V, E, u, v;
 
-    printf("Enter number of vertices: ");
-    scanf("%d", &n);
+    printf("Enter vertices and edges: ");
+    scanf("%d %d", &V, &E);
 
-    printf("Enter number of edges: ");
-    scanf("%d", &edges);
+    // initialize graph
+    for (int i = 0; i < V; i++)
+        for (int j = 0; j < V; j++)
+            graph[i][j] = 0;
 
     printf("Enter edges (u v):\n");
-    for (int i = 0; i < edges; i++) {
-        int u, v;
+    for (int i = 0; i < E; i++) {
         scanf("%d %d", &u, &v);
-        adj[u][v] = 1;
-        adj[v][u] = 1;  // undirected graph
+        graph[u][v] = 1;   // directed edge
     }
 
-    // initialize visited array
-    for (int i = 0; i < n; i++)
-        visited[i] = 0;
+    if (hasCycle(V))
+        printf("YES\n");
+    else
+        printf("NO\n");
 
-    // check for cycle in all components
-    for (int i = 0; i < n; i++) {
-        if (!visited[i]) {
-            if (dfs(i, -1, adj, n)) {
-                printf("YES\n");
-                return 0;
-            }
-        }
-    }
-
-    printf("NO\n");
     return 0;
 }
