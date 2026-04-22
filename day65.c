@@ -1,97 +1,67 @@
-// Problem: Perform BFS from a given source using queue.
-
-// Input:
-// - n
-// - adjacency list
-// - source s
+// Problem: Using DFS and parent tracking, detect if undirected graph has a cycle.
 
 // Output:
-// - BFS traversal order
+// - YES or NO
 
 #include <stdio.h>
+#include <stdlib.h>
 
-#define MAX 100   // Maximum number of nodes
+#define MAX 100
 
-// Queue implementation using array
-int queue[MAX];
-int front = -1, rear = -1;
+int visited[MAX];
 
-// Function to insert element into queue
-void enqueue(int value) {
-    if (rear == MAX - 1) {
-        printf("Queue Overflow\n");
-        return;
-    }
+// DFS function to detect cycle
+int dfs(int node, int parent, int adj[MAX][MAX], int n) {
+    visited[node] = 1;
 
-    // If queue is empty, initialize front
-    if (front == -1)
-        front = 0;
-
-    rear++;
-    queue[rear] = value;   // Insert element at rear
-}
-
-// Function to remove element from queue
-int dequeue() {
-    if (front == -1 || front > rear) {
-        return -1;  // Queue empty
-    }
-
-    int value = queue[front];
-    front++;        // Move front forward
-    return value;
-}
-
-// BFS function
-void bfs(int n, int adj[MAX][MAX], int source) {
-    int visited[MAX] = {0};   // Array to track visited nodes
-
-    // Step 1: Start from source node
-    enqueue(source);          // Push source into queue
-    visited[source] = 1;      // Mark source as visited
-
-    printf("BFS Traversal: ");
-
-    // Step 2: Repeat until queue becomes empty
-    while (front <= rear) {
-        int current = dequeue();   // Remove front node
-        printf("%d ", current);    // Print it
-
-        // Step 3: Visit all adjacent nodes
-        for (int i = 0; i < n; i++) {
-
-            // If there is an edge AND node not visited
-            if (adj[current][i] == 1 && visited[i] == 0) {
-
-                enqueue(i);        // Add to queue
-                visited[i] = 1;    // Mark as visited
+    for (int i = 0; i < n; i++) {
+        if (adj[node][i]) {  // if there is an edge
+            if (!visited[i]) {
+                // visit the neighbor
+                if (dfs(i, node, adj, n))
+                    return 1;
+            }
+            else if (i != parent) {
+                // visited and not parent → cycle detected
+                return 1;
             }
         }
     }
+    return 0;
 }
 
 int main() {
-    int n, source;
-    int adj[MAX][MAX];   // Adjacency matrix
+    int n, edges;
+    int adj[MAX][MAX] = {0};
 
-    // Input number of nodes
-    printf("Enter number of nodes: ");
+    printf("Enter number of vertices: ");
     scanf("%d", &n);
 
-    // Input adjacency matrix
-    printf("Enter adjacency matrix:\n");
+    printf("Enter number of edges: ");
+    scanf("%d", &edges);
+
+    printf("Enter edges (u v):\n");
+    for (int i = 0; i < edges; i++) {
+        int u, v;
+        scanf("%d %d", &u, &v);
+        adj[u][v] = 1;
+        adj[v][u] = 1;  // undirected graph
+    }
+
+    // initialize visited array
+    for (int i = 0; i < n; i++)
+        visited[i] = 0;
+
+    // check for cycle in all components
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            scanf("%d", &adj[i][j]);
+        if (!visited[i]) {
+            if (dfs(i, -1, adj, n)) {
+                printf("YES\n");
+                return 0;
+            }
         }
     }
 
-    // Input source node
-    printf("Enter source node: ");
-    scanf("%d", &source);
-
-    // Call BFS function
-    bfs(n, adj, source);
-
+    printf("NO\n");
     return 0;
 }

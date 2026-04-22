@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Problem Statement
 // Given an array of candidate names where each name represents a vote cast for that candidate, determine the candidate who received the maximum number of votes. In case of a tie, return the lexicographically smallest candidate name.
 
@@ -54,4 +55,62 @@ int main() {
     printf("%s %d", winner, max);
 
     return 0;
+=======
+// Problem Statement
+// Given an array of candidate names where each name represents a vote cast for that candidate, determine the candidate who received the maximum number of votes. In case of a tie, return the lexicographically smallest candidate name.
+
+// Input Format
+// First line contains an integer n representing number of votes.
+// Second line contains n space-separated strings representing candidate names.
+
+// Output Format
+// Print the name of the winning candidate followed by the number of votes received.
+
+// Sample Input
+// 13
+// john johnny jackie johnny john jackie jamie jamie john johnny jamie johnny john
+
+// Sample Output
+// john 4
+
+// Explanation
+// Both john and johnny receive 4 votes, but john is lexicographically smaller, so john is declared the winner.
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int n, i, j, count, max = 0;
+    char names[100][50], winner[50];
+
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        scanf("%s", names[i]);
+    }
+
+    for(i = 0; i < n; i++) {
+        count = 1;
+
+        for(j = i + 1; j < n; j++) {
+            if(strcmp(names[i], names[j]) == 0) {
+                count++;
+            }
+        }
+
+        if(count > max) {
+            max = count;
+            strcpy(winner, names[i]);
+        }
+        else if(count == max) {
+            if(strcmp(names[i], winner) < 0) {
+                strcpy(winner, names[i]);
+            }
+        }
+    }
+
+    printf("%s %d", winner, max);
+
+    return 0;
+>>>>>>> 2f7ab0c (Commit for April 22)
 }
