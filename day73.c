@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem Statement
 // Given a string s consisting of lowercase English letters, find and return the first character that does not repeat in the string. If all characters repeat, return '$'.
 
