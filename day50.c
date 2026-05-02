@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem: BST Search
 
 // Implement the solution for this problem.
