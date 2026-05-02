@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem: Count Leaf Nodes
 
 // Implement the solution for this problem.
