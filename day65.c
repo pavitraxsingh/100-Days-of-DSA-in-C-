@@ -1,6 +1,6 @@
 // Problem: Using DFS and parent tracking, detect if undirected graph has a cycle.
 
-// Output:
+// Output::
 // - YES or NO
 
 #include <stdio.h>
