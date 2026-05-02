@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem Statement:
 // Given a queue of integers, reverse the queue using a stack.
 
