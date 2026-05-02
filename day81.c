@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem: Implement Bubble Sort - Implement the algorithm.
 
 // Input:
