@@ -23,36 +23,7 @@ int main()
     for(i = 0; infix[i] != '\0'; i++)
     {
         if(isalnum(infix[i]))   // if operand
-        {
-            postfix[j++] = infix[i];
-        }
-        else if(infix[i] == '(')
-        {
-            stack[++top] = '(';
-        }
-        else if(infix[i] == ')')
-        {
-            while(stack[top] != '(')
-                postfix[j++] = stack[top--];
-            top--;  // remove '('
-        }
-        else   // if operator
-        {
-            while(top != -1 && precedence(stack[top]) >= precedence(infix[i]))
-                postfix[j++] = stack[top--];
-            stack[++top] = infix[i];
-        }
-    }
 
-    while(top != -1)   // pop remaining operators
-        postfix[j++] = stack[top--];
-
-    postfix[j] = '\0';
-
-    printf("Postfix: %s", postfix);
-    return 0;
-}
-=======
 // Problem: Convert an infix expression to postfix notation using stack.
 
 // Input:
