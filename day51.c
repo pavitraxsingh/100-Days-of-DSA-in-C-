@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Find the Lowest Common Ancestor (LCA) of two nodes in a Binary Search Tree.
 
 // Input Format:
