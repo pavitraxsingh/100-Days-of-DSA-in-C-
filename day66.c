@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 // Problem: Detect cycle in directed graph using DFS and recursion stack.
 
-// Output:
+// Output::
 // - YES if cycle exists
 #include <stdio.h>
 
