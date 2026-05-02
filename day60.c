@@ -1,4 +1,4 @@
-// Problem Statement:
+// Problem Statement::
 // Check whether a given binary tree satisfies the Min-Heap property.
 
 // Input Format:
