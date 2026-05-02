@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem Statement:
 // Perform inorder, preorder, and postorder traversals of a given binary tree.
 
