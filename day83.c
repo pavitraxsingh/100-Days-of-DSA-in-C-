@@ -1,4 +1,4 @@
-// Problem: Implement Selection Sort - Implement the algorithm.
+// Problem:: Implement Selection Sort - Implement the algorithm.
 
 // Input:
 // - First line: integer n
