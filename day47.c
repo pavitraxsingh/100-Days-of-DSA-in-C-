@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem: Height of Binary Tree
 
 // Implement the solution for this problem.
