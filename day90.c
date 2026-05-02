@@ -1,4 +1,4 @@
-// Problem Statement
+// Problem Statement:
 // Given n boards of different lengths and k painters, each painter paints contiguous boards. Painting a unit length of board takes one unit of time.
 
 // Determine the minimum time required to paint all boards.
