@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Problem Statement:
 // Implement a Min Heap using an array where the smallest element is always at the root.
 
